@@ -57,3 +57,11 @@ spec:
 ## Implementing limits to your Containers and Pods in Fargate
 
 ## Setting Memory And CPU Limits In Docker
+
+## Conclusion 
+
+In this article we have seen the importance of defining resources limits for your containers, the kind of problems the container environment can experience if resource quota utilization are not implace, we also saw three different methods to limit resource allocation and utilization by containers, in Docker, Fargate and Kubernetes. 
+
+Now you are aware of the have security, performance and resource consumption inplications of not setting container resource utilization for your workload. It’s recommended that you set at least Memory and CPU limits when you run your container applications.
+
+
