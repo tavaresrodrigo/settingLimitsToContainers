@@ -21,9 +21,9 @@ By setting resource limits to your containers, you protect your environment to f
 By applying limits to resource utilization for your containers you also improves visibility on how much memory and CPU the conainer process is demanding from the host operation system. In the Sysdig 2022 Cloud‑Native Security and Usage Report Sysdig shared some interesting finds based on the data gattered from the billions of containers their customers run over the course of a year and the ammount of workloads that does not limit resource utilization is surprising. 
 
 > “Many companies adopt cloud for operational efficiency, but more than half of containers deployed have no limits, which could waste resources”
-- Sysdig
+> **Sysdig**
 
-[Sysdig report container resource limit image](resourcelimits)
+![Sysdig report container resource limit image](resourcelimits.png)
 
 Limits can be implemented either reactively (the system intervenes once it sees a violation) or by enforcement (the system prevents the container from ever exceeding the limit). Different runtimes can have different ways to implement the same restrictions.
 
