@@ -7,12 +7,19 @@ applications.
 
 ### In this article I will show you:
 
-*	The reason why setting limits to your containers is important.
+*	Setting limits to your containers is important.
 * How Cgroups limit resource usage in Linux. 
 *	Implementing limits to your Containers and Pods in Fargate.
 *	Setting Memory And CPU Limits In Docker.
 *	Setting resource limits in Kubernetes. 
 
+
+### Setting limits to your containers is important
+
+By setting resource limits to your containers, you protect your environment to from attacks like [resource exhaustion attack](https://en.wikipedia.org/wiki/Resource_exhaustion_attack), improve efficiency in resources utilization, promote a more efficient resource allocation, and minimize costs. 
+By applying limits to resource utilization for your containers you also improves visibility on how much memory and CPU the conainer process is demanding from the host operation system. In the 
+
+Limits can be implemented either reactively (the system intervenes once it sees a violation) or by enforcement (the system prevents the container from ever exceeding the limit). Different runtimes can have different ways to implement the same restrictions.
 
 
 
