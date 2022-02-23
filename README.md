@@ -16,13 +16,12 @@ applications.
 
 By setting resource limits to your containers, you protect your environment to from attacks like [resource exhaustion attack](https://en.wikipedia.org/wiki/Resource_exhaustion_attack), improve efficiency in resources utilization, promote a more efficient resource allocation, and minimize costs. 
 
-By applying limits to resource utilization for your containers you also improves visibility on how much memory and CPU the conainer process is demanding from the host operation system. In the Sysdig 2022 Cloud‑Native Security and Usage Report Sysdig shared some interesting finds based on the data gattered from the billions of containers their customers run over the course of a year and the ammount of workloads that does not limit resource utilization is surprising. 
+By applying limits to resource utilization for your containers you also improves visibility on how much memory and CPU the conainer process is demanding from the host operation system. In the Sysdig 2022 Cloud‑Native Security and Usage Report[1] Sysdig shared some interesting finds based on the data gattered from the billions of containers their customers run over the course of a year and the ammount of workloads that does not limit resource utilization is surprising. 
 
 > **“Many companies adopt cloud for operational efficiency, but more than half of containers deployed have no limits, which could waste resources” - Sysdig**
 
 <p align="center">
   <img alt="Sysdig report container resource limit image" src="resourcelimits.png">
-  [1] Sysdig 2022 Cloud-Native Security and Usage Report
 </p>
 Limits can be implemented either reactively where the system intervenes once it sees a violation or by enforcement, the system prevents the container from ever exceeding the limit by terminating it. Different runtimes can have different ways to implement the same restrictions, in the following sections we will set limits using different methods for Kuberentes, Fargate and Docker. 
 
@@ -55,7 +54,7 @@ spec:
 
 ## Setting Memory And CPU Limits with Docker
 
-It's possible to enforce Out Of **Memory** Exception and CPU allocation to Docker containers by setting runtime configuration flags of the docker run command [2]. To limit the maximum amount of memory the container can use to 256Mb you can set the parameters below:
+It's possible to enforce Out Of **Memory** Exception and CPU allocation to Docker containers by setting runtime configuration flags of the docker run command [3]. To limit the maximum amount of memory the container can use to 256Mb you can set the parameters below:
 
 ```
 -m or --memory=256m
@@ -69,10 +68,31 @@ The Completely Fair Scheduler - CFS is the one responsible for scheduling normal
 --cpus=<value>
 ```
 
-Have a look at the Runtime options with Memory, CPUs, and GPUs documentation for more details on how to set limits to your Docker containers [2].
+Have a look at the Runtime options with Memory, CPUs, and GPUs documentation for more details on how to set limits to your Docker containers [3].
 
 ## Implementing limits to your Containers with AWS Fargate
 
+You can think a Task definitions as a Kubernetes Pod. Container definitions will set the Task container properties in a very similar way the **Spec** section of your Pod manifest in Kubernetes. It's possible to set CPU and Memory hard limits to Linux containers in Fargate, there is no support for har limit in Windows containers. Container level memory settings are optional when task size is set [4].
+
+```
+{
+  "ipcMode": null,
+  "executionRoleArn": "your_role",
+  "containerDefinitions": [
+ [...]
+  "placementConstraints": [],
+  "memory": "4096",              <---- Memory limit
+  "cpu": 2                       <---- CPU limit
+  "taskRoleArn": null,
+  "compatibilities": [
+    "EC2",
+    "FARGATE"
+  ],
+** [...]**
+}
+```
+
+Have a look at the ECS Task definition parameters documentation for more details on how to set ulimits at Container level [5].
 
 ## Conclusion 
 
@@ -84,4 +104,5 @@ Now you are aware of the have security, performance and resource consumption inp
 [1] https://sysdig.com/2022-cloud-native-security-and-usage-report \
 [2] https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ \
 [3] https://docs.docker.com/config/containers/resource_constraints/ \
-[4] https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html \
+[4] https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html 
+[5] https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_limits
