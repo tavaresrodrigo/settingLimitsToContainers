@@ -1,4 +1,4 @@
-# Are you setting Limits to your Linux Containers?
+# Are you setting Limits to your Linux Containers? [REVIEWING] 
 
 There is a known expression in my country; “Brazilians has no limits”, which is used to illustrate the curious and creative ways we use to solve problems in face of limitations, there is even a word to describe that, [Gambiarra](https://www.urbandictionary.com/define.php?term=Gambiarra). We will see in this article that when it comes to Linux containers it’s actually important to set resource limits.
 
