@@ -1,8 +1,6 @@
 # Are you setting Limits to your Linux Containers?
 
-The internet is full of quotes linking “setting limits” boundaries to innovation, there is a known expression in my country; “Brazilians has no limits” to illustrate the curious and creative ways we use to solve problems in face of limitations.
-
-We will see in this article that when it comes to Linux containers, it’s actually important to set resource limits.
+There is a known expression in my country; “Brazilians has no limits”, which is used to illustrate the curious and creative ways we use to solve problems in face of limitations. We will see in this article that when it comes to Linux containers, it’s actually important to set resource limits.
 
 By default there is no any mechanisms avoiding your containers to consume all the memory available in your host, if a process is allowed to allocate unlimited resources in your container, your cluster can quickly run out of Memory and CPU, disrupting your deployment thereby starving legitimate applications. 
 
