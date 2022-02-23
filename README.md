@@ -81,7 +81,7 @@ In this article we have seen the importance of defining resources limits for you
 Now you are aware of the have security, performance and resource consumption inplications of not setting container resource utilization for your workload. It’s recommended that you set at least Memory and CPU limits when you run your container applications.
 
 ## References
-[1] https://sysdig.com/2022-cloud-native-security-and-usage-report a\
-[2] https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ a\
-[3] https://docs.docker.com/config/containers/resource_constraints/ a\
-[4] https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html a\
+[1] https://sysdig.com/2022-cloud-native-security-and-usage-report \
+[2] https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ \
+[3] https://docs.docker.com/config/containers/resource_constraints/ \
+[4] https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html \
