@@ -104,5 +104,5 @@ Now you are aware of the have security, performance and resource consumption inp
 [1] https://sysdig.com/2022-cloud-native-security-and-usage-report \
 [2] https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ \
 [3] https://docs.docker.com/config/containers/resource_constraints/ \
-[4] https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html 
+[4] https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html \
 [5] https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_limits
